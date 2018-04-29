@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
-import { data } from './src/components/data';
+import { StyleSheet, Text, View, Image, Dimensions, ScrollView } from 'react-native';
+import Header from './src/components/Header';
+import EntryList from './src/components/EntryList';
 
 const { width, height } = Dimensions.get('window');
 
 export default class App extends Component {
   render() {
     return (
-      <View>{ data.map((picture, idx) => <Image key={idx} style={ styles.image } source={ picture.image } /> ) }</View>
+      <View style={{flex: 1}}>
+        <Header headerText={'ENTRIES'} />
+        <EntryList />
+      </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  image: {
-    width,
-    height: height / 3,
-  }
-});
